@@ -4,8 +4,8 @@
 }
 a {
     color: #420601d7;  
-    text-decoration: none;
 }
+
 header {
     height: 180px;
     background-color: #fcfcf0;
@@ -29,10 +29,6 @@ header nav {
     grid-row: 3/4;
     font-size: 30px;
 }
-header nav a:hover {
-    font-size: 33px;
-    transition: 0.3s ease-out;
-}
 header .contact {
     grid-row: 2/3;
     grid-column: 3/4;
@@ -40,13 +36,8 @@ header .contact {
     font-size: 20px;
 }
 header .contact a {
-    border: 1px solid #770a00;
+    border: 3px solid #770a00;
     padding: 5px 20px;
-    border-radius: 20px;
-}
-header .contact a:hover{
-    font-size: 23px;
-    transition: 0.3s ease-out;
 }
 header .contact .tel {
     margin-top: 15px;

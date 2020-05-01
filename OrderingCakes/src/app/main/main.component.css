@@ -1,16 +1,21 @@
+
 main {
-    background-image: url(/assets/img/bg10.jpg);
-    background-repeat: no-repeat;
+    background-image: url(/assets/img/bg.png);
     background-size: contain;
-    padding: 0 15%;
+}
+main a {
+    color: black;
+}
+main .block {
+    padding: 0 5%;
 }
 main h2 {
     font-family: 'Ekaterina Velikaya One', arial;
 }
 main .about{
     display: grid;
-    grid-template-rows: 80px 320px 1200px;
-    margin-top: 200px;
+    grid-template-rows: 80px 320px 580px;
+    margin-top: 80px;
 }
 main .about p {
     font-size: 20px;
@@ -27,3 +32,52 @@ main .about .person {
     display: grid;
     grid-template-columns: 30% 30% 30%;
 }
+
+
+
+main .photoCake{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-between;
+}
+
+
+    main .photoCake .photo div{
+        background: #000;  
+        overflow: hidden;  
+    }
+    main .photoCake .photo div img{
+        opacity: 1;
+        transition: opacity 124ms linear, transform 124ms linear;  
+    }
+    main .photoCake .photo:hover div img{
+        opacity: 0.7; 
+    }
+    main .photoCake .order {
+        margin-top: 15px;
+        font-size: 25px;
+        
+    }
+   
+    main .afterPhoto{
+        display: grid;
+        grid-template-rows: 30px 50px;
+        align-items: center;
+        font-size: 20px;
+    }
+    main .afterPhoto .takeLink {
+    border: 3px solid #770a00;
+    padding: 5px 20px;
+    width: 30%;
+    }
+
+    
+
+    main .contact {
+        display: grid;
+        grid-template-rows: 100px 30px 30px 30px 30px 70px;
+        align-items: center;
+    }
+    main .contact p {
+        font-size: 20px;
+    }
