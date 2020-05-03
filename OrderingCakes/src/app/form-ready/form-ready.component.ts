@@ -58,12 +58,14 @@ export class FormReadyComponent implements OnInit {
   }
 
   onSubmit(){
-this.db.list('customers').push({name_customer:this.name_customer, address:this.address, tel:this.tel, email:this.email, date:this.date});
+this.db.list('customers').push({name_cake:this.cakes[this.id-1].name, price:this.cakes[this.id-1].price, name_customer:this.name_customer, address:this.address, tel:this.tel, email:this.email, date:this.date});
 this.name_customer="";
 this.address="";
 this.tel="";
 this.email="";
 this.date="";
+alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');
+this.router.navigate(['']);
   }
 
 }

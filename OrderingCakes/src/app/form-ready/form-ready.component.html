@@ -4,26 +4,28 @@
 <div class="container p-5">
     <h3 class=" text-center" >Заказ торта "{{cakes[id-1].name}}"</h3>
     <form  class="p-5" (ngSubmit)="onSubmit()">
+        <!-- <input  name="name_cake" id="" value="{{cakes[id-1].name}}" type="hidden" [(ngModel)]="name_cake">
+        <input  name="price" id="" value="{{cakes[id-1].price}}" type="hidden" [(ngModel)]="price"> -->
         <div class="form-group">
             <label for="name">Имя:<sup>*</sup></label>
     
-            <input type="text" class="form-control mb-3" name="name"  [(ngModel)]="name_customer">
+            <input type="text" class="form-control mb-3" name="name"  [(ngModel)]="name_customer" required>
             <label for="address">Адрес:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="address"  [(ngModel)]="address">
+            <input type="text" class="form-control mb-3" name="address"  [(ngModel)]="address" required>
             <label for="tel">Телефон:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel">
+            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel" required>
             <label for="email">Email:<sup>*</sup></label>
-            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email">
+            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email" required>
             <label for="date">Когда вам нужен торт?<sup>*</sup></label>
-            <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date">
+            <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date" required>
             <p><sup>*</sup> - Необходимые поля для заполнения</p>
             <input type="checkbox" class="mb-5" id="" required>Даю согласие на обработку персональных данных
-            <div class="row">
+            <div class="row order">
                 <div class="col">
                 <p>Цена торта: {{cakes[id-1].price}}</p>
             </div>
-            <div class="col">
-                <button class="btn btn-dark" type="submit">Заказать</button>
+            <div class="col text-right">
+                <button class="btn w-50" type="submit">Заказать</button>
         </div>
         </div>
         </div>
