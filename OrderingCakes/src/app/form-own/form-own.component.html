@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="forma">
+    <img src="/assets/img/cream.png" alt="Крем" class="w-100">
+<div class="container p-5 ">
+    <h3 class=" text-center" >Заказ торта с индивидуальными параметрами</h3>
+    <form  class="p-5" (ngSubmit)="onSubmit()">
+        <div class="form-group ">
+            <label for="name">Имя:<sup>*</sup></label>
+    
+            <input type="text" class="form-control mb-3" name="name"  [(ngModel)]="name_customer" required>
+            <label for="address">Адрес:<sup>*</sup></label>
+            <input type="text" class="form-control mb-3" name="address"  [(ngModel)]="address" required>
+            <label for="tel">Телефон:<sup>*</sup></label>
+            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel" required>
+            <label for="email">Email:<sup>*</sup></label>
+            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email" required>
+
+            <label for="corz">Тип коржа:</label>
+            <select name="corz" id="" class="form-control mb-3" [(ngModel)]="corz">
+                <option >Бисквитный</option>
+                <option >Слоеный</option>
+                <option >Медовый</option>
+                <option >Песочный</option>
+            </select>
+            <label for="filling">Начинка:</label>
+            <select name="filling" id=""  class="form-control mb-3" [(ngModel)]="filling">
+                <option >Трюфель</option>
+                <option >Крем Чизкейк</option>
+                <option >Белковый</option>
+                <option >Джем, повидло</option>
+                <option >Сгущенка</option>
+                <option >Карамель с бананом или клубникой</option>
+                <option >Шоколад с клубникой или бананом.</option>
+                <option >Безе</option>
+                <option >Мусс</option>
+            </select>
+            <label for="weight">Веc торта(г):</label>
+            <input type="number" name="weight" id=""  class="form-control mb-3" [(ngModel)]="weight">
+            <label for="tiers">Количество ярусов:</label>
+            <input type="number" name="tiers" id=""  class="form-control mb-3" [(ngModel)]="tiers">
+            <label for="wishes">Опишите свои пожелания:</label>
+            <textarea name="wishes" id="" cols="30" rows="10"  class="form-control mb-3" [(ngModel)]="wishes"></textarea>
+
+
+
+
+            <label for="date">Когда вам нужен торт?<sup>*</sup></label>
+            <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date" required>
+            <p><sup>*</sup> - Необходимые поля для заполнения</p>
+            <input type="checkbox" class="mb-3" id="" required>Даю согласие на обработку персональных данных
+            <p class="order text-center m-3 "> Цена торта сообщается после обсуждения и подтверждения всех параметров торта!</p>
+              
+            <div class="col text-right mt-5">
+                <button class="btn w-25 " type="submit">Заказать</button>
+        </div>
+        </div>
+    
+    </form>
+
+</div>
+</div>

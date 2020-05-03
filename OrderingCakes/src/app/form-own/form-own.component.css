@@ -1,0 +1,19 @@
+.forma {
+    background-image: url(/assets/img/bg.png);
+    background-size:contain;
+}
+.forma sup {
+    color: red;
+}
+.forma button {
+    border: 3px solid #770a00;
+    padding: 5px 20px;
+    color: solid #770a00;
+    font-size: 20px;
+}
+.forma .order {
+    font-size: 20px;
+}
+.forma button:hover{
+    text-decoration: underline;
+}

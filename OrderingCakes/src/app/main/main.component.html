@@ -38,7 +38,7 @@
                   <button class="btn">Посмотреть готовые варианты у нас на сайте</button></a>
               </div>
               <div class="col">
-                  <a href=""><img src="/assets/img/your_cake.png" class="w-75 mb-2" alt="Собрать торт">
+                  <a  href="/form-own"><img src="/assets/img/your_cake.png" class="w-75 mb-2" alt="Собрать торт">
                 <button class="btn">Собрать собственный торт</button></a>
             </div>
           </div>
@@ -103,7 +103,7 @@
         <a href="" class="" *ngIf="!next" (click)="onNext()">Показать ещё</a>
             <div class="col text-left afterPhoto mt-5">
             <p class="">Вы также можете собрать собственный торт!</p>
-            <a href="" class="takeLink ">Собрать собственный торт</a>
+            <a [routerLink]="['form-own']" class="takeLink ">Собрать собственный торт</a>
         </div>      
         </div>
 

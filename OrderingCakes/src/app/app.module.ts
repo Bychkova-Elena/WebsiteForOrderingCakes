@@ -11,6 +11,7 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
+import { FormOwnComponent } from './form-own/form-own.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { environment } from 'src/environments/environment';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    FormReadyComponent
+    FormReadyComponent,
+    FormOwnComponent
   ],
   imports: [
     BrowserModule,
