@@ -12,6 +12,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { FormOwnComponent } from './form-own/form-own.component';
+import { CakeInfoComponent } from './cake-info/cake-info.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormOwnComponent } from './form-own/form-own.component';
     FooterComponent,
     MainComponent,
     FormReadyComponent,
-    FormOwnComponent
+    FormOwnComponent,
+    CakeInfoComponent
   ],
   imports: [
     BrowserModule,

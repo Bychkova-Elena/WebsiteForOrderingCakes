@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class=" info">
+    <img src="/assets/img/cream.png" alt="Крем" class="w-100">
+    <div class="container text-center">
+        <h3 class="m-5">Торт "{{cakes[id-1].name}}"</h3>
+    <div class="row">
+        <div class="col">
+            <img class="w-50" src="{{cakes[id-1].picture}}" alt="Торт">
+        </div>
+        <div class="col">
+            <p>{{cakes[id-1].info}}</p>
+            <p>Цена: {{cakes[id-1].price}}</p>
+
+        </div>
+    </div>
+    <div class="row  mt-5 pb-5">
+        <div class="col">
+</div>
+<div class="col">
+
+</div>
+        <div class="col">
+            <button class="btn " [routerLink]="['/']" type="submit">Вернуться назад</button>
+        </div>
+   <div class="col ">
+        <button class="btn " [routerLink]="['/form-ready', cakes[id-1].id]" type="submit">Заказать</button>
+</div>
+
+    </div>
+ 
+    
+
+    </div>
+</div>
+
