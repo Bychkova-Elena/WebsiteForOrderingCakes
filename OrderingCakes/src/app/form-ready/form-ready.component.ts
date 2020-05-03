@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CakeModule } from '../cake/cake.module';
 import { CakesService } from '../services/cakes.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
@@ -17,13 +17,12 @@ export class FormReadyComponent implements OnInit {
   cakes;
   id:number;
 
-  items:Observable<any[]>;
-  // name_customer = "";
-  // address = "";
-  // tel="";
-  // email="";
-  // date="";
-  itemValue="";
+  customers:Observable<any[]>;
+  name_customer = "";
+  address = "";
+  tel="";
+  email="";
+  date="";
   constructor(  private activeRoute:ActivatedRoute,
     private router:Router,
     private CakesService:CakesService,
@@ -33,7 +32,7 @@ export class FormReadyComponent implements OnInit {
       this.id = param.id;
       
     });
-    this.items = db.list('items').valueChanges();
+    this.customers = db.list('customers').valueChanges();
   } 
 
   ngOnInit() {
@@ -58,16 +57,13 @@ export class FormReadyComponent implements OnInit {
     }
   }
 
-//   onSubmit(){
-// this.db.list('customers').push({name_customer:this.name_customer, address:this.address, tel:this.tel, email:this.email, date:this.date});
-// this.name_customer="";
-// this.address="";
-// this.tel="";
-// this.email="";
-// this.date="";
-//   }
-onSubmit(){
-  this.db.list('items').push({content:this.itemValue});
-  this.itemValue="";
-}
+  onSubmit(){
+this.db.list('customers').push({name_customer:this.name_customer, address:this.address, tel:this.tel, email:this.email, date:this.date});
+this.name_customer="";
+this.address="";
+this.tel="";
+this.email="";
+this.date="";
+  }
+
 }
