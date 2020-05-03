@@ -2,7 +2,7 @@
     background-image: url(/assets/img/bg.png);
     background-size:cover;
 }
-.info button {
+.info .order {
     border: 3px solid #770a00;
     padding: 5px 20px;
     color: solid #770a00;

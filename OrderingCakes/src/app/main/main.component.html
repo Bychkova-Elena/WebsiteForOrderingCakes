@@ -80,8 +80,14 @@
                                 <img src="{{cake.picture}}" alt="Торт" class="w-100">
                                 </div>
                             </a>
-                            <div class="order">
+                            <div class="row order">
+                                <div class="col">
+                                    <p>Цена: {{cake.price}}</p>
+            
+                                </div>
+                                <div class="col">
                     <a  [routerLink]="['/form-ready', cake.id]" >Заказать</a>
+                </div>
                 </div>
 
 
@@ -93,8 +99,14 @@
                     <img src="{{cake.picture}}" alt="Торт" class="w-100">
                     </div>
                 </a>
-                <div class="order">
+                <div class="row order">
+                    <div class="col">
+                        <p>Цена: {{cake.price}}</p>
+
+                    </div>
+                    <div class="col">
         <a  [routerLink]="['/form-ready', cake.id]">Заказать</a>
+    </div>
     </div>
 </div>
 </ng-container>

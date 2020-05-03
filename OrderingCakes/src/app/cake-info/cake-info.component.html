@@ -2,6 +2,9 @@
 <div class=" info">
     <img src="/assets/img/cream.png" alt="Крем" class="w-100">
     <div class="container text-center">
+        <div class="col text-left">
+            <button class="btn text-left " type="submit" [routerLink]="['/']">Вернуться назад</button>
+    </div>
         <h3 class="m-5">Торт "{{cakes[id-1].name}}"</h3>
     <div class="row">
         <div class="col">
@@ -13,17 +16,9 @@
 
         </div>
     </div>
-    <div class="row  mt-5 pb-5">
-        <div class="col">
-</div>
-<div class="col">
-
-</div>
-        <div class="col">
-            <button class="btn " [routerLink]="['/']" type="submit">Вернуться назад</button>
-        </div>
-   <div class="col ">
-        <button class="btn " [routerLink]="['/form-ready', cakes[id-1].id]" type="submit">Заказать</button>
+    <div class="row  mt-5 pb-5 mr-5">
+   <div class="col text-right mr-5">
+        <button class="btn order " [routerLink]="['/form-ready', cakes[id-1].id]" type="submit">Заказать</button>
 </div>
 
     </div>
