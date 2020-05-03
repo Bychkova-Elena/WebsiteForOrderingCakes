@@ -1,0 +1,7 @@
+.forma {
+    background-image: url(/assets/img/bg.png);
+    background-size:cover;
+}
+.forma sup {
+    color: red;
+}

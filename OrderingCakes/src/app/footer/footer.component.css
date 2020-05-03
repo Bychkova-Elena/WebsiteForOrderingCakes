@@ -1,0 +1,12 @@
+
+footer {
+    background-color: #fcfcf0;
+    height: 50px;
+}
+footer img{
+    margin-top: -20px;
+}
+footer p {
+    font-size: 23px;
+    margin-left: 5%;
+}

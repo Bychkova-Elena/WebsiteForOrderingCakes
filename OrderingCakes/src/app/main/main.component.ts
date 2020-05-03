@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CakeModule } from '../cake/cake.module';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CakesService } from '../services/cakes.service';
 
 @Component({
   selector: 'app-main',
@@ -7,21 +9,32 @@ import { CakeModule } from '../cake/cake.module';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  cakes: CakeModule[] = [];
-  next:boolean = false;
-  constructor(){
-      this.cakes.push(
-        new CakeModule(1, '/assets/img/cake1.png', 'Информация о торте', '/assets/img/cake1_h.png'),
-        new CakeModule(2, '/assets/img/cake1.png', 'Информация о торте','/assets/img/cake1_h.png'),
-        new CakeModule(3, '/assets/img/cake1.png', 'Информация о торте', '/assets/img/cake1_h.png'),
-        new CakeModule(4, '/assets/img/cake1.png', 'Информация о торте', '/assets/img/cake1_h.png'),
-        new CakeModule(5, '/assets/img/cake1.png', 'Информация о торте', '/assets/img/cake1_h.png'));
+  cakes;
+  next:boolean = false; 
+  constructor(private activeRoute: ActivatedRoute,
+    private router: Router,
+    private CakesService:CakesService){
 
   }
   ngOnInit() {
+    this.updateData();
   }
-  onNext(){
+  async updateData() {
+
+    try
+    {
+      this.cakes = await this.CakesService.getAll();
+
+    } catch (e)
+    {
+      console.log(e);
+    }
+  }
+    onNext(){
     this.next = !this.next;
     return false;
   }
 }
+
+
+  

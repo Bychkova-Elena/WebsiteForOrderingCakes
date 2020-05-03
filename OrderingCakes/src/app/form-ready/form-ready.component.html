@@ -1,0 +1,61 @@
+<app-header></app-header>
+<!-- <div class="forma">
+    <img src="/assets/img/cream.png" alt="Крем" class="w-100">
+<div class="container p-5">
+    <h3 class=" text-center" >Заказ торта "{{cakes[id-1].name}}"</h3>
+    <form  [formGroup]="FormReady" class="p-5" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Имя:<sup>*</sup></label>
+    
+            <input type="text" class="form-control mb-3" name="name" FormControlName="name" [(ngModel)]="name_customer">
+            <label for="address">Адрес:<sup>*</sup></label>
+            <input type="text" class="form-control mb-3" name="address" FormControlName="address" [(ngModel)]="address">
+            <label for="tel">Телефон:<sup>*</sup></label>
+            <input type="text" class="form-control mb-3" name="tel" FormControlName="tel" [(ngModel)]="tel">
+            <label for="email">Email:<sup>*</sup></label>
+            <input type="text" name="email" class="form-control mb-3" FormControlName="email" [(ngModel)]="email">
+            <label for="date">Когда вам нужен торт?<sup>*</sup></label>
+            <input type="date" name="date"class="form-control mb-3" FormControlName="date" [(ngModel)]="date">
+            <p><sup>*</sup> - Необходимые поля для заполнения</p>
+            <input type="checkbox" class="mb-5" id="" required>Даю согласие на обработку персональных данных
+            <div class="row">
+                <div class="col">
+                <p>Цена торта: {{cakes[id-1].price}}</p>
+            </div>
+            <div class="col">
+                <button class="btn btn-dark" type="submit">Заказать</button>
+        </div>
+        </div>
+        </div>
+    
+    </form>
+
+</div>
+</div>
+
+<h2>Покупатель</h2>
+<div class="col-mb-3">
+    <pre *ngFor="let customer of customers | async">{{customer.name}}</pre>
+</div> -->
+
+
+<form (onSubmit)="onSubmit()" >
+    <div class="form-group">
+        <label for="item">Item</label>
+        <input type="text" name="item" id="item" class="form-control" required [(ngModel)]="itemValue">
+    </div>
+    <div class="btn-group">
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+<div class="col">
+    <pre *ngFor="let item of items | async">{{item.content}}</pre>
+</div>
+
+
+
+
+
+
+

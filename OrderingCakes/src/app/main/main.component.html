@@ -1,8 +1,62 @@
+<header>
+    <div class="container-fluid">
+        <div class="row header ">
+            <div class="col  logo text-center "><img src="/assets/img/logo.png" alt="Логотип" ></div>
+            <nav class="row">
+            <div class="col  text-center"><a href="#about" >О нас</a></div>
+            <div class="col  text-center"><a href="#cakes">Наши торты</a></div>
+            <div class="col  text-center"><a href="#contacts">Контакты</a></div>
+            </nav>
+            <div class="col  contact text-center ">
+                <button type="button" class="btn mt-3" data-toggle="modal" data-target="#myModal">
+                Сделать заказ
+            </button>
+                <div class="tel">
+                <p >Тел: 8(910)-234-23-23 <br> 8(967)-567-34-12</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    </header>
+
+
+    
+<!-- Модальное окно -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title mt-3" >Сделать заказ</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body m-3 mt-5">
+          <div class="row text-center">
+              <div class="col">
+                  <a href=".//#cakes"><img src="/assets/img/ready_cook.png" class="w-100" alt="Готовые торты">
+                  <button class="btn">Посмотреть готовые варианты у нас на сайте</button></a>
+              </div>
+              <div class="col">
+                  <a href=""><img src="/assets/img/your_cake.png" class="w-75 mb-2" alt="Собрать торт">
+                <button class="btn">Собрать собственный торт</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Модальное окно -->
+
+
+
+
+
 <main>
     <img src="/assets/img/cream.png" alt="Крем" class="w-100">
     <div class="container block">
         <div class="col about text-center">
-            <h2>О нас</h2>
+            <h2> <a name="about" >О нас</a></h2>
             <p class="text-justify">Здравствуйте! Мы - семья Павловых. Печем вкусные домашние тортики для Вас и Ваших близких) <br> 
                 У нас можно заказать необычные, интересные, а главное самые вкусные и натуральные сладости ручной работы, которые подарят не только частичку удовольствия, но и украсят ваш праздник.
                 Каждое изделие индивидуально и изготавливается в соответствии с вашими предпочтениями и пожеланиями по весу, объему, оформлению, наличию или отсутствию определенных продуктов. Мы всегда готовы рассмотреть любые ваши идеи и сделать что-то новое.
@@ -17,28 +71,30 @@
             </div>
         </div>
 
-        <div class="col cakes text-center">
-            <h2>Наши торты</h2> 
+        <div class="col cakes text-center" name="cakes">
+            <h2><a name="cakes" >Наши торты</a></h2> 
                 <div class="row photoCake" >
                     <div class="col" *ngFor = "let cake of cakes.slice(0,3)">
                             <a href="" class="photo">
                                 <div class="mt-5">
-                                <img src="{{cake.name}}" alt="Торт" class="w-100">
+                                <img src="{{cake.picture}}" alt="Торт" class="w-100">
                                 </div>
                             </a>
                             <div class="order">
-                    <a href="" >Заказать</a>
+                    <a  [routerLink]="['/form-ready', cake.id]" >Заказать</a>
                 </div>
+
+
             </div>
             <ng-container *ngIf="next">
             <div class="col" *ngFor = "let cake of cakes.slice(3)">
                 <a href="" class="photo">
                     <div class="mt-5">
-                    <img src="{{cake.name}}" alt="Торт" class="w-100">
+                    <img src="{{cake.picture}}" alt="Торт" class="w-100">
                     </div>
                 </a>
                 <div class="order">
-        <a href="" >Заказать</a>
+        <a  [routerLink]="['/form-ready', cake.id]">Заказать</a>
     </div>
 </div>
 </ng-container>
@@ -48,17 +104,30 @@
             <div class="col text-left afterPhoto mt-5">
             <p class="">Вы также можете собрать собственный торт!</p>
             <a href="" class="takeLink ">Собрать собственный торт</a>
+        </div>      
         </div>
-        </div>
 
 
 
-        <div class="col contact text-left mt-5">
-            <h2 class="text-center">Контакты</h2>
+                        
+
+
+
+
+        <div class="col contact text-left mt-5 pb-5" name="contacts">
+            <h2 class="text-center"><a name="contacts" >Контакты</a></h2>
             <p>Мы находимся по адресу: г. Москва, ул...</p>
             <p>Телефоны для связи: 8(910)-234-23-23, 8(967)-567-34-12</p>
             <p>Email: cake@gmail.com</p>
             <p>Ссылки на социальные сети:</p>
+            <div class="row">
+                <div class="col-1">
+                <a href="https://www.vk.com"><img src="/assets/img/vk.png" alt="ВК" class="w-100"></a>
+            </div>
+            <div class="col-1">
+                <a href="https://www.instagram.com"><img src="/assets/img/inst.png" alt="Inst" class="w-100"></a>
+            </div>
+            </div>
 
         </div>
         </div>
