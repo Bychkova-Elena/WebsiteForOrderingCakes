@@ -13,6 +13,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { FormOwnComponent } from './form-own/form-own.component';
 import { CakeInfoComponent } from './cake-info/cake-info.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CakeInfoComponent } from './cake-info/cake-info.component';
     ReactiveFormsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    TextMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,7 +22,7 @@ export class CakeInfoComponent implements OnInit {
   ngOnInit() {
     this.updateData();
   }
-  async updateData() {
+  async updateData() {                                // Получаем все торты, заносим их в 'cakes'
 
     try
     {

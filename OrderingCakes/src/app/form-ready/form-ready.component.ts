@@ -14,8 +14,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class FormReadyComponent implements OnInit {
   cakes;
   id:number;
-
-  customers:Observable<any[]>;
   name_customer = "";
   address = "";
   tel="";
@@ -30,13 +28,12 @@ export class FormReadyComponent implements OnInit {
       this.id = param.id;
       
     });
-    this.customers = db.list('customers').valueChanges();
   } 
 
   ngOnInit() {
     this.updateData();
   }
-  async updateData() {
+  async updateData() {                  // Получаем список тортов и заносим в 'cakes'
 
     try
     {
@@ -48,7 +45,7 @@ export class FormReadyComponent implements OnInit {
     }
   }
 
-  onSubmit(){
+  onSubmit(){                                                //Проверяет наличие данных в input и отправляет данные в БД
     if(this.name_customer=="" || this.address=="" || this.tel == "" || this.email=="" || this.date=="")
      alert('Необходимо заполнить все необходимые поля формы!');
     else{
@@ -57,5 +54,5 @@ alert('Ваш заказ успешно отправлен! Наш админи�
 this.router.navigate(['']);
   }
 }
-public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/];
+public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/]; //Маска для корректного ввода телефона
 }

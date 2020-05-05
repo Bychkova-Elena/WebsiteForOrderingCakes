@@ -3,7 +3,7 @@
     <img src="/assets/img/cream.png" alt="Крем" class="w-100">
 <div class="container p-5">
     <div class="col">
-        <button class="btn " type="submit" [routerLink]="['/']">Вернуться на Главную</button>
+        <button class="btn " type="submit" [routerLink]="['/']">Вернуться на главную</button>
 </div>
     <h3 class=" text-center" >Заказ торта "{{cakes[id-1].name}}"</h3>
     <form  class="p-5" (ngSubmit)="onSubmit()">
@@ -13,10 +13,15 @@
             <input type="text" class="form-control mb-3" name="name"  [(ngModel)]="name_customer">
             <label for="address">Адрес:<sup>*</sup></label>
             <input type="text" class="form-control mb-3" name="address"  [(ngModel)]="address">
-            <label for="tel" [textMask]="{mask: mask}">Телефон:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel">
+            <label for="tel" >Телефон:<sup>*</sup></label>
+            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel" [textMask]="{mask: mask}">
             <label for="email">Email:<sup>*</sup></label>
-            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email" >
+            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email" #emailUser="ngModel" email>
+            <div *ngIf="emailUser.invalid" class="alert alert-danger">
+          Некорректный email
+        </div>
+
+
             <label for="date">Когда вам нужен торт?<sup>*</sup></label>
             <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date" >
             <p><sup>*</sup> - Необходимые поля для заполнения</p>
@@ -25,7 +30,10 @@
                 <div class="col">
                 <p>Цена торта: {{cakes[id-1].price}}</p>
             </div>
-            <div class="col text-right">
+            <div *ngIf="emailUser.invalid" class="col text-right">
+                <button class="btn w-50" type="submit" disabled>Заказать</button>
+        </div>
+            <div *ngIf="emailUser.valid" class="col text-right">
                 <button class="btn w-50" type="submit">Заказать</button>
         </div>
         </div>

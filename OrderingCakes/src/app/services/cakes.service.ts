@@ -6,32 +6,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CakesService extends API {
-  url="cakes";
+  url="cakes";                               //массив объектов в db.json
   constructor(public httpClient: HttpClient) { 
     super(httpClient)
   }
-  getAll() {
+  getAll() {                              //Получить все торты
 
     return this.get(this.url).toPromise();
   }
-
-  getById(id: number) {
-
-    return this.get(`${this.url}/${id}`).toPromise();
-  }
-  putById(id: number, data){ //
-
-    return this.put(`${this.url}/${id}`, data).toPromise();
-  }
-
-  deleteById(id: number) {
-
-    return this.delete(`${this.url}/${id}`).toPromise();
-  }
-
-  postNotes(data) {
-    return this.post(this.url, data).toPromise();
-  }
-
 
 }

@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./form-own.component.css']
 })
 export class FormOwnComponent implements OnInit {
-  customers:Observable<any[]>;
   name_customer = "";
   address = "";
   tel="";
@@ -23,12 +22,11 @@ export class FormOwnComponent implements OnInit {
 
   constructor(private router:Router,
     public db:AngularFireDatabase) { 
-      this.customers = db.list('customers').valueChanges();
     }
 
   ngOnInit() {
   }
-  onSubmit(){
+  onSubmit(){                           //Проверяет наличие данных в input и отправляет данные в БД
     if(this.name_customer=="" || this.address=="" || this.tel == "" || this.email=="" || this.date=="")
     alert('Необходимо заполнить все необходимые поля формы!');
     else{
@@ -38,5 +36,5 @@ export class FormOwnComponent implements OnInit {
     this.router.navigate(['']);
       }
     }
-
+    public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/];  // Маска для телефона
 }

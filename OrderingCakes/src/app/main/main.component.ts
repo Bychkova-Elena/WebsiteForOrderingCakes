@@ -19,7 +19,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.updateData();
   }
-  async updateData() {
+  async updateData() {                  // Получаем все торты, заносим их в 'cakes'
 
     try
     {
@@ -30,7 +30,8 @@ export class MainComponent implements OnInit {
       console.log(e);
     }
   }
-    onNext(){
+    onNext(){                /*Меняет значение параметра next на противоположное. 
+                               Используется при выводе оставшихся тортов, при нажатии на кнопку "показать ещё" */
     this.next = !this.next;
     return false;
   }

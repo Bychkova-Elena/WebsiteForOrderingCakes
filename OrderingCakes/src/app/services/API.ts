@@ -22,7 +22,7 @@ export class API {
     //использования.
   }
 
-  public post(url: string, data) { // для занечсения
+  public post(url: string, data) { // для занесения
 
     return this.httpClient.post (this.getUrl(url), data);
   }

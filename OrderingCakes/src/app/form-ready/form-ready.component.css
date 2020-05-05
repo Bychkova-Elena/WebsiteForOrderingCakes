@@ -1,6 +1,6 @@
 .forma {
     background-image: url(/assets/img/bg.png);
-    background-size:cover;
+    background-size:contain;
 }
 .forma sup {
     color: red;
