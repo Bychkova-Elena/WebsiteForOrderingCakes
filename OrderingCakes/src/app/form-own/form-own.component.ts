@@ -29,20 +29,14 @@ export class FormOwnComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(){
+    if(this.name_customer=="" || this.address=="" || this.tel == "" || this.email=="" || this.date=="")
+    alert('Необходимо заполнить все необходимые поля формы!');
+    else{
     this.db.list('customers').push({name_customer:this.name_customer, address:this.address, tel:this.tel, email:this.email, 
       corz:this.corz, filling:this.filling, weight:this.weight, tiers:this.tiers, wishes:this.wishes, date:this.date});
-    this.name_customer="";
-    this.address="";
-    this.tel="";
-    this.email="";
-    this.corz="";
-    this.filling="";
-    this.weight="";
-    this.tiers="";
-    this.wishes="";
-    this.date="";
     alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');
     this.router.navigate(['']);
       }
+    }
 
 }

@@ -12,8 +12,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./form-ready.component.css']
 })
 export class FormReadyComponent implements OnInit {
-  FormReady:FormGroup;
-  disabled:false;
   cakes;
   id:number;
 
@@ -37,13 +35,6 @@ export class FormReadyComponent implements OnInit {
 
   ngOnInit() {
     this.updateData();
-    this.FormReady = new FormGroup({
-      name: new FormControl({value:"", disabled:this.disabled}, Validators.required),
-      address:new FormControl({value:"", disabled:this.disabled}, Validators.required),
-      tel:new FormControl({value:"", disabled:this.disabled}, Validators.required),
-      email:new FormControl({value:"", disabled:this.disabled}, Validators.email),
-      date:new FormControl({value:"", disabled:this.disabled}, Validators.required)
-    });
   }
   async updateData() {
 
@@ -58,14 +49,13 @@ export class FormReadyComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.name_customer=="" || this.address=="" || this.tel == "" || this.email=="" || this.date=="")
+     alert('Необходимо заполнить все необходимые поля формы!');
+    else{
 this.db.list('customers').push({name_cake:this.cakes[this.id-1].name, price:this.cakes[this.id-1].price, name_customer:this.name_customer, address:this.address, tel:this.tel, email:this.email, date:this.date});
-this.name_customer="";
-this.address="";
-this.tel="";
-this.email="";
-this.date="";
 alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');
 this.router.navigate(['']);
   }
-
+}
+public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/];
 }

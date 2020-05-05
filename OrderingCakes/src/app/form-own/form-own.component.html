@@ -1,22 +1,24 @@
 <app-header></app-header>
+
+
 <div class="forma">
     <img src="/assets/img/cream.png" alt="Крем" class="w-100">
 <div class="container p-5 ">
     <div class="col">
-        <button class="btn " type="submit" [routerLink]="['/']">Вернуться назад</button>
+        <button class="btn " type="submit" [routerLink]="['/']">Вернуться на Главную</button>
 </div>
     <h3 class=" text-center" >Заказ торта с индивидуальными параметрами</h3>
     <form  class="p-5" (ngSubmit)="onSubmit()">
         <div class="form-group ">
             <label for="name">Имя:<sup>*</sup></label>
     
-            <input type="text" class="form-control mb-3" name="name"  [(ngModel)]="name_customer" required>
+            <input type="text" class="form-control mb-3" name="name"  [(ngModel)]="name_customer" >
             <label for="address">Адрес:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="address"  [(ngModel)]="address" required>
+            <input type="text" class="form-control mb-3" name="address"  [(ngModel)]="address">
             <label for="tel">Телефон:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel" required>
+            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel" >
             <label for="email">Email:<sup>*</sup></label>
-            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email" required>
+            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email" >
 
             <label for="corz">Тип коржа:</label>
             <select name="corz" id="" class="form-control mb-3" [(ngModel)]="corz">
@@ -48,9 +50,9 @@
 
 
             <label for="date">Когда вам нужен торт?<sup>*</sup></label>
-            <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date" required>
+            <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date" >
             <p><sup>*</sup> - Необходимые поля для заполнения</p>
-            <input type="checkbox" class="mb-3" id="" required>Даю согласие на обработку персональных данных
+            <input type="checkbox" class="mb-3" id="" checked disabled>Даю согласие на обработку персональных данных
             <p class="order text-center m-3 "> Цена торта сообщается после обсуждения и подтверждения всех параметров торта!</p>
               
             <div class="col text-right mt-5">

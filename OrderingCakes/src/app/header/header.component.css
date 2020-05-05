@@ -1,11 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-a, button {
+header a, button {
     color: #420601d7;  
 }
-button:hover{
+header button:hover{
     text-decoration: underline;
 }
 
@@ -44,4 +40,7 @@ header .contact button {
 }
 header .contact .tel {
     margin-top: 15px;
+}
+.modal button:hover{
+    text-decoration: underline;
 }
