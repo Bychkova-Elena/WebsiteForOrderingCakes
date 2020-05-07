@@ -11,3 +11,11 @@
 .info button:hover{
     text-decoration: underline;
 }
+@media screen and (max-device-width: 1024) {
+   .info button[type=submit] {
+        margin-left: 10%!important;
+    }
+}
+    @media screen and (max-device-width: 630px) {
+        .info { background-size: 0;}
+}

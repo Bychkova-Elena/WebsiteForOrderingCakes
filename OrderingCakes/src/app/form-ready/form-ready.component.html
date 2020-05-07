@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="forma">
     <img src="/assets/img/cream.png" alt="Крем" class="w-100">
-<div class="container p-5">
+<div class="container p-5 ">
     <div class="col">
         <button class="btn " type="submit" [routerLink]="['/']">Вернуться на главную</button>
 </div>
@@ -25,16 +25,16 @@
             <label for="date">Когда вам нужен торт?<sup>*</sup></label>
             <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date" >
             <p><sup>*</sup> - Необходимые поля для заполнения</p>
-            <input type="checkbox" class="mb-5" id="" checked disabled>Даю согласие на обработку персональных данных
-            <div class="row order">
+            <input type="checkbox" class="mb-lg-5" id="" checked disabled>Даю согласие на обработку персональных данных
+            <div class="row order mt-3">
                 <div class="col">
                 <p>Цена торта: {{cakes[id-1].price}}</p>
             </div>
             <div *ngIf="emailUser.invalid" class="col text-right">
-                <button class="btn w-50" type="submit" disabled>Заказать</button>
+                <button class="btn w-lg-50" type="submit" disabled>Заказать</button>
         </div>
             <div *ngIf="emailUser.valid" class="col text-right">
-                <button class="btn w-50" type="submit">Заказать</button>
+                <button class="btn w-lg-50" type="submit">Заказать</button>
         </div>
         </div>
         </div>

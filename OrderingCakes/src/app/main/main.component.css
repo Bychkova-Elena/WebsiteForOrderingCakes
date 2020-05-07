@@ -1,6 +1,7 @@
 main {
     background-image: url(/assets/img/bg.png);
     background-size: contain;
+    display: block;
 }
 main a {
     color: black;
@@ -13,7 +14,7 @@ main h2 a {
 }
 main .about{
     display: grid;
-    grid-template-rows: 80px 320px 580px;
+    grid-template-rows: 80px auto auto;
     margin-top: 80px;
 }
 main .about p {
@@ -80,3 +81,20 @@ main .photoCake{
     main .contact p {
         font-size: 20px;
     }
+
+
+    @media screen and (max-device-width: 1024px) {
+        main .block {padding: 0 10%;}
+        main .afterPhoto .takeLink {width: 50%;}
+        
+       }
+       @media screen and (max-device-width: 630px) {
+        main .block {padding: 0 15%;}
+        main .about .person {display: block; }
+        main .about .lower {margin-top: 0;}
+        main .about img {margin: 20px 0%;}
+        main .cakes {margin-top: 30px;}
+        main .photoCake{display: block;}
+        main .afterPhoto .takeLink {width: 100%; margin-top: 60px;}
+        main .contact {grid-template-rows: auto;}
+       }

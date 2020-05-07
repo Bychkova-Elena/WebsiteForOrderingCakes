@@ -1,6 +1,7 @@
 .forma {
     background-image: url(/assets/img/bg.png);
     background-size:contain;
+    
 }
 .forma sup {
     color: red;
@@ -16,4 +17,10 @@
 }
 .forma button:hover{
     text-decoration: underline;
+}
+@media screen and (max-device-width: 1024px) {
+    .forma .container {padding: 8%!important;}
+}
+@media screen and (max-device-width: 630px){
+    .forma .order {font-size: 15px;}
 }
