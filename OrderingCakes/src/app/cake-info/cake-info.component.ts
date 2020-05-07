@@ -9,7 +9,7 @@ import { CakesService } from '../services/cakes.service';
 })
 export class CakeInfoComponent implements OnInit {
   id:number;
-  cakes;
+  cake;
 
   constructor(private activeRoute:ActivatedRoute,
     private CakesService:CakesService) {
@@ -19,19 +19,8 @@ export class CakeInfoComponent implements OnInit {
     });
    }
 
-  ngOnInit() {
-    this.updateData();
-  }
-  async updateData() {                                // Получаем все торты, заносим их в 'cakes'
-
-    try
-    {
-      this.cakes = await this.CakesService.getAll();
-
-    } catch (e)
-    {
-      console.log(e);
-    }
+   async ngOnInit() {
+    this.cake = await this.CakesService.getById(this.id);          // Получаем торт по id
   }
 
 

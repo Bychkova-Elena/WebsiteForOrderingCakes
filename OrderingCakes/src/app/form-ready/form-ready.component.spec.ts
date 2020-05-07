@@ -22,4 +22,14 @@ describe('FormReadyComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+//   it('should create form with email', () => {
+//     expect(component.form.contains('email')).toBe(true);
+// });
+// it ('should be valid email', () => {
+//     const control = component.form.get('email');
+//     control.setValue('example@');
+//     expect(control.valid).toBeFalsy();
+// });
+
 });

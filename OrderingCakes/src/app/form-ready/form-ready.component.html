@@ -5,37 +5,35 @@
     <div class="col">
         <button class="btn " type="submit" [routerLink]="['/']">Вернуться на главную</button>
 </div>
-    <h3 class=" text-center" >Заказ торта "{{cakes[id-1].name}}"</h3>
-    <form  class="p-5" (ngSubmit)="onSubmit()">
+    <h3 class=" text-center" >Заказ торта "{{cake.name}}"</h3>
+    <form  class="p-5" [formGroup]="formReady" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="name">Имя:<sup>*</sup></label>
+            <label for="name_customer">Имя:<sup>*</sup></label>
     
-            <input type="text" class="form-control mb-3" name="name"  [(ngModel)]="name_customer">
+            <input type="text" class="form-control mb-3" name="name_customer"  formControlName="name_customer">
             <label for="address">Адрес:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="address"  [(ngModel)]="address">
+            <input type="text" class="form-control mb-3" name="address"  formControlName="address">
             <label for="tel" >Телефон:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel" [textMask]="{mask: mask}">
+            <input type="text" class="form-control mb-3" name="tel" formControlName="tel" [textMask]="{mask: mask}">
             <label for="email">Email:<sup>*</sup></label>
-            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email" #emailUser="ngModel" email>
-            <div *ngIf="emailUser.invalid" class="alert alert-danger">
+            <input type="text" name="email" class="form-control mb-3"  formControlName="email">
+            <div *ngIf="formReady.get('email').invalid && formReady.get('email').touched" class="alert alert-danger">
           Некорректный email
         </div>
 
 
             <label for="date">Когда вам нужен торт?<sup>*</sup></label>
-            <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date" >
+            <input type="date" name="date"class="form-control mb-3"  formControlName="date" >
             <p><sup>*</sup> - Необходимые поля для заполнения</p>
             <input type="checkbox" class="mb-lg-5" id="" checked disabled>Даю согласие на обработку персональных данных
             <div class="row order mt-3">
                 <div class="col">
-                <p>Цена торта: {{cakes[id-1].price}}</p>
+                <p>Цена торта: {{cake.price}}</p>
             </div>
-            <div *ngIf="emailUser.invalid" class="col text-right">
-                <button class="btn w-lg-50" type="submit" disabled>Заказать</button>
-        </div>
-            <div *ngIf="emailUser.valid" class="col text-right">
-                <button class="btn w-lg-50" type="submit">Заказать</button>
-        </div>
+        <div  class="col text-right">
+            <button class="btn w-lg-50" type="submit" [disabled]="formReady.invalid">Заказать</button>
+    </div>
+
         </div>
         </div>
     

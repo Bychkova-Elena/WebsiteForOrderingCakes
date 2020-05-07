@@ -15,4 +15,9 @@ export class CakesService extends API {
     return this.get(this.url).toPromise();
   }
 
+  getById(id: number) {                   // Получить торт по id
+
+    return this.get(`${this.url}/${id}`).toPromise();
+  }
+
 }

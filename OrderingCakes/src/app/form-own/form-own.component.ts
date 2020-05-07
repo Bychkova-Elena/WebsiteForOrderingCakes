@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-own',
@@ -9,32 +10,32 @@ import { Observable } from 'rxjs';
   styleUrls: ['./form-own.component.css']
 })
 export class FormOwnComponent implements OnInit {
-  name_customer = "";
-  address = "";
-  tel="";
-  email="";
-  corz="";
-  filling="";
-  weight="";
-  tiers="";
-  wishes="";
-  date="";
+  formOwn: FormGroup;
+  disabled = false;
 
   constructor(private router:Router,
     public db:AngularFireDatabase) { 
     }
 
-  ngOnInit() {
-  }
-  onSubmit(){                           //Проверяет наличие данных в input и отправляет данные в БД
-    if(this.name_customer=="" || this.address=="" || this.tel == "" || this.email=="" || this.date=="")
-    alert('Необходимо заполнить все необходимые поля формы!');
-    else{
-    this.db.list('customers').push({name_customer:this.name_customer, address:this.address, tel:this.tel, email:this.email, 
-      corz:this.corz, filling:this.filling, weight:this.weight, tiers:this.tiers, wishes:this.wishes, date:this.date});
-    alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');
-    this.router.navigate(['']);
+    async ngOnInit() {
+      this.formOwn = new FormGroup({                              // создание новой формы
+      name_customer: new FormControl( { value: '', disabled: this.disabled } , [Validators.required]),
+      address: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
+      tel: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
+      email: new FormControl({ value: '', disabled: this.disabled }, [Validators.required, Validators.email]),
+      corz:new FormControl({value: '', disabled: this.disabled}),
+      filling: new FormControl ({value: '', disabled: this.disabled}),
+      weight: new FormControl ({value: '', disabled: this.disabled}),
+      tiers: new FormControl ({value: '', disabled: this.disabled}),
+      wishes: new FormControl ({value: '', disabled: this.disabled}),
+      date: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
+      });
       }
-    }
-    public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/];  // Маска для телефона
+
+onSubmit(){
+  this.db.list('customers').push( this.formOwn.value);                           //Заносим данные с формы в БД
+  alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');  // Выводим сообщение об успешной отправке формы
+  this.router.navigate(['/']);                                                     // Перенаправляемся на главную страницу
+  }
+  public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/]; //Маска для корректного ввода телефона
 }

@@ -8,30 +8,29 @@
         <button class="btn " type="submit" [routerLink]="['/']">Вернуться на главную</button>
 </div>
     <h3 class=" text-center" >Заказ торта с индивидуальными параметрами</h3>
-    <form  class="p-5" (ngSubmit)="onSubmit()">
+    <form  class="p-5" [formGroup]="formOwn" (ngSubmit)="onSubmit()">
         <div class="form-group ">
             <label for="name">Имя:<sup>*</sup></label>
     
-            <input type="text" class="form-control mb-3" name="name"  [(ngModel)]="name_customer" >
+            <input type="text" class="form-control mb-3" name="name"  formControlName="name_customer" >
             <label for="address">Адрес:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="address"  [(ngModel)]="address">
+            <input type="text" class="form-control mb-3" name="address" formControlName="address">
             <label for="tel">Телефон:<sup>*</sup></label>
-            <input type="text" class="form-control mb-3" name="tel"  [(ngModel)]="tel" [textMask]="{mask: mask}">
+            <input type="text" class="form-control mb-3" name="tel"  formControlName="tel" [textMask]="{mask: mask}">
             <label for="email">Email:<sup>*</sup></label>
-            <input type="text" name="email" class="form-control mb-3"  [(ngModel)]="email" #emailUser="ngModel" email>
-            <div *ngIf="emailUser.invalid"
-            class="alert alert-danger">
+            <input type="text" name="email" class="form-control mb-3"  formControlName="email">
+            <div *ngIf="formOwn.get('email').invalid && formOwn.get('email').touched" class="alert alert-danger">
             Некорректный email
           </div>
             <label for="corz">Тип коржа:</label>
-            <select name="corz" id="" class="form-control mb-3" [(ngModel)]="corz">
+            <select name="corz" id="" class="form-control mb-3" formControlName="corz" >
                 <option >Бисквитный</option>
                 <option >Слоеный</option>
                 <option >Медовый</option>
                 <option >Песочный</option>
             </select>
             <label for="filling">Начинка:</label>
-            <select name="filling" id=""  class="form-control mb-3" [(ngModel)]="filling">
+            <select name="filling" id=""  class="form-control mb-3" formControlName="filling">
                 <option >Трюфель</option>
                 <option >Крем Чизкейк</option>
                 <option >Белковый</option>
@@ -43,26 +42,23 @@
                 <option >Мусс</option>
             </select>
             <label for="weight">Веc торта(г):</label>
-            <input type="number" name="weight" id=""  class="form-control mb-3" [(ngModel)]="weight">
+            <input type="number" name="weight" id=""  class="form-control mb-3" formControlName="weight">
             <label for="tiers">Количество ярусов:</label>
-            <input type="number" name="tiers" id=""  class="form-control mb-3" [(ngModel)]="tiers">
+            <input type="number" name="tiers" id=""  class="form-control mb-3" formControlName="tiers">
             <label for="wishes">Опишите свои пожелания:</label>
-            <textarea name="wishes" id="" cols="30" rows="10"  class="form-control mb-3" [(ngModel)]="wishes"></textarea>
+            <textarea name="wishes" id="" cols="30" rows="10"  class="form-control mb-3" formControlName="wishes"></textarea>
 
 
 
 
             <label for="date">Когда вам нужен торт?<sup>*</sup></label>
-            <input type="date" name="date"class="form-control mb-3"  [(ngModel)]="date" >
+            <input type="date" name="date"class="form-control mb-3" formControlName="date"   >
             <p><sup>*</sup> - Необходимые поля для заполнения</p>
             <input type="checkbox" class="mb-3" id="" checked disabled>Даю согласие на обработку персональных данных
             <p class="order text-center m-3 "> Цена торта сообщается после обсуждения и подтверждения всех параметров торта!</p>
-            <div *ngIf="emailUser.invalid" class="col text-right mt-5">
-                <button class="btn w-25" type="submit" disabled>Заказать</button>
-        </div>
-            <div *ngIf="emailUser.valid" class="col text-right mt-5">
-                <button class="btn w-lg-25" type="submit">Заказать</button>
-        </div>
+        <div  class="col text-right mt-5">
+            <button class="btn w-lg-25" type="submit" [disabled]="formOwn.invalid">Заказать</button>
+    </div>
         </div>
     
     </form>

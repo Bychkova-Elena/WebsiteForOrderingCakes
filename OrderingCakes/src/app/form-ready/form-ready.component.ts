@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CakeModule } from '../cake/cake.module';
 import { CakesService } from '../services/cakes.service';
@@ -12,13 +12,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./form-ready.component.css']
 })
 export class FormReadyComponent implements OnInit {
-  cakes;
+  formReady: FormGroup;
+  cake;
   id:number;
-  name_customer = "";
-  address = "";
-  tel="";
-  email="";
-  date="";
+  disabled = false;
   constructor(  private activeRoute:ActivatedRoute,
     private router:Router,
     private CakesService:CakesService,
@@ -30,29 +27,22 @@ export class FormReadyComponent implements OnInit {
     });
   } 
 
-  ngOnInit() {
-    this.updateData();
-  }
-  async updateData() {                  // Получаем список тортов и заносим в 'cakes'
-
-    try
-    {
-      this.cakes = await this.CakesService.getAll();
-
-    } catch (e)
-    {
-      console.log(e);
+  async ngOnInit() {
+    this.cake = await this.CakesService.getById(this.id);          // Получаем торт по id
+    this.formReady = new FormGroup({                              // создание новой формы
+    cake_name: new FormControl( { value: this.cake.name, disabled: this.disabled }),
+    cake_price: new FormControl( { value: this.cake.price, disabled: this.disabled }),
+    name_customer: new FormControl( { value: '', disabled: this.disabled } , [Validators.required]),
+    address: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
+    tel: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
+    email: new FormControl({ value: '', disabled: this.disabled }, [Validators.required, Validators.email]),
+    date: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
+    });
     }
+onSubmit(){
+  this.db.list('customers').push( this.formReady.value);                           //Заносим данные с формы в БД
+  alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');  // Выводим сообщение об успешной отправке формы
+  this.router.navigate(['/']);                                                     // Перенаправляемся на главную страницу
   }
-
-  onSubmit(){                                                //Проверяет наличие данных в input и отправляет данные в БД
-    if(this.name_customer=="" || this.address=="" || this.tel == "" || this.email=="" || this.date=="")
-     alert('Необходимо заполнить все необходимые поля формы!');
-    else{
-this.db.list('customers').push({name_cake:this.cakes[this.id-1].name, price:this.cakes[this.id-1].price, name_customer:this.name_customer, address:this.address, tel:this.tel, email:this.email, date:this.date});
-alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');
-this.router.navigate(['']);
-  }
-}
-public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/]; //Маска для корректного ввода телефона
+  public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/]; //Маска для корректного ввода телефона
 }

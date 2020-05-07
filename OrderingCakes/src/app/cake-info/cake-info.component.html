@@ -6,20 +6,20 @@
         <div class="col text-left">
             <button class="btn text-left " type="submit" [routerLink]="['/']">Вернуться на главную</button>
     </div>
-        <h3 class="m-5">Торт "{{cakes[id-1].name}}"</h3>
+        <h3 class="m-5">Торт "{{cake.name}}"</h3>
     <div class="row">
         <div class="col">
-            <img class="w-50" src="{{cakes[id-1].picture}}" alt="Торт">
+            <img class="w-50" src="{{cake.picture}}" alt="Торт">
         </div>
         <div class="col">
-            <p>{{cakes[id-1].info}}</p>
-            <p>Цена: {{cakes[id-1].price}}</p>
+            <p>{{cake.info}}</p>
+            <p>Цена: {{cake.price}}</p>
 
         </div>
     </div>
     <div class="row  mt-5 pb-5 mr-5">
    <div class="col text-right mr-5">
-        <button class="btn order " [routerLink]="['/form-ready', cakes[id-1].id]" type="submit">Заказать</button>
+        <button class="btn order " [routerLink]="['/form-ready', cake.id]" type="submit">Заказать</button>
 </div>
 
     </div>
