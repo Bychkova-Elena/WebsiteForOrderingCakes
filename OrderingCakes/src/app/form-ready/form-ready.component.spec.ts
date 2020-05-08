@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { FormReadyComponent } from './form-ready.component';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+import { HttpClient } from '@angular/common/http';
 
 describe('FormReadyComponent', () => {
   let component: FormReadyComponent;
@@ -8,7 +10,9 @@ describe('FormReadyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormReadyComponent ]
+      declarations: [ FormReadyComponent, HeaderComponent, FooterComponent ],
+      imports: [],
+      providers:[HttpClient],
     })
     .compileComponents();
   }));
@@ -18,18 +22,5 @@ describe('FormReadyComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-//   it('should create form with email', () => {
-//     expect(component.form.contains('email')).toBe(true);
-// });
-// it ('should be valid email', () => {
-//     const control = component.form.get('email');
-//     control.setValue('example@');
-//     expect(control.valid).toBeFalsy();
-// });
 
 });

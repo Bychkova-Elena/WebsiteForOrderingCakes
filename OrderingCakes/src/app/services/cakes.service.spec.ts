@@ -2,69 +2,60 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientModule, HttpClient, HttpResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CakesService } from './cakes.service';
+import { CakeModule } from '../cake/cake.module';
 
-const mockData = [
-  {
-    "id":1,
-    "name":"Фруктовый",
-    "picture":"/assets/img/cake1.png",
-    "info":"Информация о торте",
-    "price":"1000 руб."
-  },
-  {
-    "id":2,
-    "name":"Шоколадный",
-    "picture":"/assets/img/cake2.png",
-    "info":"Информация о торте",
-    "price":"800 руб."
-  }
-] 
 
 describe('CakesService', () => {
+  let cakesService: CakesService;
+  let httpTestingController:HttpTestingController;
 
-     
-  let service;
-  let httpTestingController: HttpTestingController;
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [CakesService]
-    });
-    httpTestingController = TestBed.get(HttpTestingController);
-  });
  
-  beforeEach(inject([CakesService], s => {
-    service = s;
-  }));
-   
-   
-    beforeEach(() => {
-      this.mockCakes = [...mockData];
-      this.mockCake = this.mockCakes[0];
-      this.mockId = this.mockCake.id;
-    });
-   
-    afterEach(() => {
-      // After every test, assert that there are no more pending requests.
-      httpTestingController.verify();
-    });
-   
+  beforeEach(() => {
+  TestBed.configureTestingModule({
+    imports:[HttpClientTestingModule],
+    providers: [ 
+      CakesService, HttpClient
+    ]
+  });
+      httpTestingController = TestBed.get(HttpTestingController);
+      cakesService = TestBed.get(CakesService);
+});
 
-
-
+afterEach(() =>{
+httpTestingController.verify();
+});
+  
 
   it('should be created', () => {
     const service: CakesService = TestBed.get(CakesService);
     expect(service).toBeTruthy();
   });
  
-    it('should return mock cakes', () => {
-      service.getAll().subscribe(
-        cakes => expect(cakes.length).toEqual("2"),
-        fail
-      );
+    it('should retrieve all cakes', () => {
+      const dummyCakes:CakeModule[] = [
+        {id:1, name:"Фруктовый", picture:"/assets/img/cake1.png", info:"Информация о торте", price:"1000 руб."},
+        {id:2, name:"Шоколадный", picture:"/assets/img/cake2.png", info:"Информация о торте", price:"800 руб."},
+      ];
+      cakesService.getAll().then(cakes =>{
+        expect(cakes).toEqual(dummyCakes);
+      });
+      const request = httpTestingController.expectOne(`http://localhost:3000/${cakesService.url}`);
+      expect(request.request.method).toBe('GET');
+      request.flush(dummyCakes);
+    });
+
+
+    it('should retrieve cake by ID', () => {
+      const dummyCake:CakeModule[] = [
+        {id:1, name:"Фруктовый", picture:"/assets/img/cake1.png", info:"Информация о торте", price:"1000 руб."}
+      ];
+      const id = 1;
+      cakesService.getById(id).then(cake =>{
+        expect(cake).toEqual(dummyCake);
+      });
+      const request = httpTestingController.expectOne(`http://localhost:3000/${cakesService.url}/${id}`);
+      expect(request.request.method).toBe('GET');
+      request.flush(dummyCake);
     });
   });
 

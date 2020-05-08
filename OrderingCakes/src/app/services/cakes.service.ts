@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { API } from './API';
 import { HttpClient } from '@angular/common/http';
+import { CakeModule } from '../cake/cake.module';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
