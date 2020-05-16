@@ -18,7 +18,7 @@ export class FormOwnComponent implements OnInit {
     }
 
     async ngOnInit() {
-      this.formOwn = new FormGroup({                              // создание новой формы
+      this.formOwn = new FormGroup({                                      /**  создание формы для заказа тортов по собственным парамерам */
       name_customer: new FormControl( { value: '', disabled: this.disabled } , [Validators.required]),
       address: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
       tel: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
@@ -33,9 +33,9 @@ export class FormOwnComponent implements OnInit {
       }
 
 onSubmit(){
-  this.db.list('customers').push( this.formOwn.value);                           //Заносим данные с формы в БД
-  alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');  // Выводим сообщение об успешной отправке формы
-  this.router.navigate(['/']);                                                     // Перенаправляемся на главную страницу
+  this.db.list('customers').push( this.formOwn.value);                               /**Заносим данные с формы в БД */
+  alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');    /** Выводим сообщение об успешной отправке формы */
+  this.router.navigate(['/']);                                                     /**  Перенаправляемся пользователя на главную страницу */
   }
-  public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/]; //Маска для корректного ввода телефона
+  public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/];  /**Маска для корректного ввода телефона */
 }

@@ -20,7 +20,7 @@ export class CakeInfoComponent implements OnInit {
    }
 
    async ngOnInit() {
-    this.cake = await this.CakesService.getById(this.id);          // Получаем торт по id
+    this.cake = await this.CakesService.getById(this.id);          /**  Получаем торт по id */
   }
 
 

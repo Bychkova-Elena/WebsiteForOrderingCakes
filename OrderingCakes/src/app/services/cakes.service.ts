@@ -8,16 +8,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CakesService extends API {
-  url="cakes";                               //массив объектов в db.json
+  url="cakes";                               /** ссылка на массив объектов в db.json */
   constructor(public httpClient: HttpClient) { 
     super(httpClient)
   }
-  getAll() {                              //Получить все торты
+  getAll() {                              /** Получить все торты */
 
     return this.get(this.url).toPromise();
   }
 
-  getById(id: number) {                   // Получить торт по id
+  getById(id: number) {                   /** Получить торт по id*/ 
 
     return this.get(`${this.url}/${id}`).toPromise();
   }

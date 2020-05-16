@@ -28,8 +28,8 @@ export class FormReadyComponent implements OnInit {
   } 
 
   async ngOnInit() {
-    this.cake = await this.CakesService.getById(this.id);          // Получаем торт по id
-    this.formReady = new FormGroup({                              // создание новой формы
+    this.cake = await this.CakesService.getById(this.id);          /** Получаем торт по id*/ 
+    this.formReady = new FormGroup({                              /**создание новой формы для заказа тортов из списка готовых */ 
     cake_name: new FormControl( { value: this.cake.name, disabled: this.disabled }),
     cake_price: new FormControl( { value: this.cake.price, disabled: this.disabled }),
     name_customer: new FormControl( { value: '', disabled: this.disabled } , [Validators.required]),
@@ -40,9 +40,9 @@ export class FormReadyComponent implements OnInit {
     });
     }
 onSubmit(){
-  this.db.list('customers').push( this.formReady.value);                           //Заносим данные с формы в БД
-  alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');  // Выводим сообщение об успешной отправке формы
-  this.router.navigate(['/']);                                                     // Перенаправляемся на главную страницу
+  this.db.list('customers').push( this.formReady.value);                           /** Заносим данные с формы в БД */
+  alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');  /** Выводим сообщение об успешной отправке формы*/ 
+  this.router.navigate(['/']);                                                     /** Перенаправляемся на главную страницу*/ 
   }
-  public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/]; //Маска для корректного ввода телефона
+  public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/]; /** Маска для корректного ввода телефона */
 }

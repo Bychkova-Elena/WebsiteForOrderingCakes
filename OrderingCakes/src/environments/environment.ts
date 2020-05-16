@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  firebase: {                                          //Данные с форм заказов заносятся в данную БД
+  firebase: {                                          /** Данные с форм заказов заносятся в данную БД */
     apiKey: "AIzaSyBWd7TGdG2zS-UVHGme0rigX4zyssIXk6A",
     authDomain: "order-cakes-9ac74.firebaseapp.com",
-    databaseURL: "https://order-cakes-9ac74.firebaseio.com",    //Ссылка на БД
+    databaseURL: "https://order-cakes-9ac74.firebaseio.com",    /** Ссылка на БД */
     projectId: "order-cakes-9ac74",
     storageBucket: "order-cakes-9ac74.appspot.com",
     messagingSenderId: "364260112376",
