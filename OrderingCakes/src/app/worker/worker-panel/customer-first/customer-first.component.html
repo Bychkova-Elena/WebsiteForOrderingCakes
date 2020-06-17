@@ -1,12 +1,12 @@
 
 <div class="container">
-    <div class = " mt-5" ><app-worker-header></app-worker-header></div>
+    <div class = " mt-5 print-none" ><app-worker-header></app-worker-header></div>
     <h1 class="text-center mt-3 mb-5">Заказчики торта из каталога</h1>
 
-    <input type="text" [(ngModel)]="srch" placeholder="Поиск по ФИО заказчика" class="form-control mt-3 mb-3">
+    <input type="text" [(ngModel)]="srch" placeholder="Поиск по ФИО заказчика" class="form-control mt-3 mb-3 print-none">
 
-    <h3>Фильтр по тортам:</h3>
-    <select   class=" col-4 form-control selectpicker" [(ngModel)]="sortON">
+    <h3 class="print-none">Фильтр по тортам:</h3>
+    <select   class=" col-4 form-control selectpicker print-none" [(ngModel)]="sortON">
         <option [ngValue]="every" selected > Показать все</option>
           <option [ngValue]="choko" value="choko" > Шоколадный</option>
           <option [ngValue]="fruit" value="fruit" >Фруктовый</option>
@@ -25,7 +25,7 @@
             <th scope="col">Дата</th>
           </tr>
         </thead>
-        <tbody *ngFor="let customer of customerFirst | filter:srch | sort:sortON">
+        <tbody *ngFor="let customer of customerFirst | filter:srch | sort:sortON" class="print-brake">
           <tr>
             <td>{{customer.name_customer}}</td>
             <td>{{customer.tel}}</td>

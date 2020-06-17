@@ -1,0 +1,8 @@
+@media print {
+    .print-none{
+        display:none;
+    }
+   .print-brake { 
+        page-break-inside: avoid;
+   }
+}

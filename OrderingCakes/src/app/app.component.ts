@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as firebase from 'firebase';
+import 'firebase/analytics';
 import "firebase/auth";
 
 @Component({
@@ -12,7 +13,9 @@ export class AppComponent {
 
 
   
-  
+  ngOnInit() {
+    firebase.analytics()
+   }
 
 
 }

@@ -1,9 +1,9 @@
 <div class="container">
-    <div class = " mt-5"><app-worker-header></app-worker-header></div>
+    <div class = " mt-5 print-none"><app-worker-header></app-worker-header></div>
     <h1 class="text-center mt-3">Заказчики креативного торта</h1>
-    <input type="text" [(ngModel)]="srch" placeholder="Поиск по ФИО заказчика" class="form-control mt-3 mb-3">
+    <input type="text" [(ngModel)]="srch" placeholder="Поиск по ФИО заказчика" class="form-control mt-3 mb-3 print-none">
     <ol>
-    <div *ngFor="let customer of customerSecond  | filter:srch" class="mt-5 mb-5">
+    <div *ngFor="let customer of customerSecond  | filter:srch" class="mt-5 mb-5 print-brake">
       <h4 class="col font-weight-bold"><li>Заказчик</li></h4>
     <table class="table" >
         <thead class="thead-light">
