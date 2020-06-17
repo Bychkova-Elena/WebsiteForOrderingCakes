@@ -25,6 +25,7 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AdminChangeComponent } from './admin-change/admin-change.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { SortPipe } from './pipe/sort.pipe';
+import { DashboardComponent } from './worker/worker-panel/dashboard/dashboard.component';
 
 
 
@@ -47,6 +48,7 @@ import { SortPipe } from './pipe/sort.pipe';
     AdminChangeComponent,
     FilterPipe,
     SortPipe,
+    DashboardComponent,
     
   ],
   imports: [

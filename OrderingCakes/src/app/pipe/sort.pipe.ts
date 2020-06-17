@@ -23,7 +23,7 @@ export class SortPipe implements PipeTransform {
         );
         return customer;
       }
-      else if(sort == 'fruit'){
+      else if(sort == 'cherry'){
         let customer = customerFirst.filter(
           customer => customer.cake_name === "Вишнёвый"
         );

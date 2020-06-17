@@ -11,6 +11,7 @@ import { CustomerSecondComponent } from './worker/worker-panel/customer-second/c
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AdminChangeComponent } from './admin-change/admin-change.component';
+import { DashboardComponent } from './worker/worker-panel/dashboard/dashboard.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'login-worker', component:LoginWorkerComponent},
   {path:'admin-login', component:AdminLoginComponent},
   {path:'admin-panel', component:AdminPanelComponent},
+  {path:'dashboard', component:DashboardComponent},
   {path:'admin-change', component:AdminChangeComponent},
   {path:'customer-first', component:CustomerFirstComponent},
   {path:'customer-second', component:CustomerSecondComponent},                           
