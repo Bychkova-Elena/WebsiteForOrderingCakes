@@ -1,5 +1,7 @@
 <div class="container" >
-    <h2 class="text-center m-3">Добавить торт</h2>
+
+  <a href="/main#cakes" class="btn btn-info mt-3">Посмотреть результат</a>
+    <h2 class="text-center m-3">Добавить/Редактировать торт</h2>
 
     <form  [formGroup]="formAdd" (ngSubmit)="onSubmit()">
         <div class="form-group">
@@ -11,7 +13,7 @@
             <textarea name="info" id="" cols="30" rows="2" formControlName="info" class="form-control" ></textarea>
             <label for="info">Цена торта:</label>
             <input type="text" name="price" id="" class="form-control" formControlName="price" >
-            <button class="btn btn-info mt-3" [disabled]="formAdd.invalid" type="submit" >Добавить</button>
+            <button class="btn btn-info mt-3" [disabled]="formAdd.invalid" type="submit" >Добавить/Редактировать</button>
         </div>
     
     </form>
@@ -26,6 +28,7 @@
             <th scope="col">Картинка</th>
             <th scope="col">Информация о торте</th>
             <th scope="col">Цена торта</th>
+            <th></th>
           </tr>
         </thead>
         <tbody *ngFor="let cake of cakes">
@@ -35,7 +38,18 @@
             <td>{{cake.picture}}</td>
             <td>{{cake.info}}</td>
             <td>{{cake.price}}</td>
+            <td>
+              <div class="row">
+                <div class="col">
+                  <button class="btn btn-success" (click)="edit(cake)"><i class="fa fa-pencil fa-fw"></i></button>
+                </div>
+                <div class="col">
+<button class="btn btn-danger" (click)="delete(cake.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
 </div>
+
