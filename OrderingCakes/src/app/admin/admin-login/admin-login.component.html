@@ -1,0 +1,15 @@
+<form  class="p-5" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <button [routerLink]="['/']" class="btn mb-4">Вернуться назад</button>
+    <div class="form-group">
+        <label for="email">Email:<sup>*</sup></label>
+        <input type="text" name="email" class="form-control mb-3"  formControlName="email">
+    <label for="password">Пароль:<sup>*</sup></label>
+        <input type="password" name="password" class="form-control mb-3"  formControlName="password">
+    <div  class="col text-right">
+        <button class="btn btn-info w-lg-50" type="submit" [disabled]="formLogin.invalid">Войти как админ</button>
+</div>
+
+    </div>
+
+
+</form>

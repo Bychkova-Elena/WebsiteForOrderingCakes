@@ -1,0 +1,41 @@
+<div class="container" >
+    <h2 class="text-center m-3">Добавить торт</h2>
+
+    <form  [formGroup]="formAdd" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Название торта:</label>
+            <input type="text" name="name" id="" class="form-control" formControlName="name" >
+            <label for="picture">Ссылка на картинку:</label>
+            <input type="text" name="picture" id="" class="form-control" formControlName="picture" >
+            <label for="info">Информация о торте:</label>
+            <textarea name="info" id="" cols="30" rows="2" formControlName="info" class="form-control" ></textarea>
+            <label for="info">Цена торта:</label>
+            <input type="text" name="price" id="" class="form-control" formControlName="price" >
+            <button class="btn btn-info mt-3" [disabled]="formAdd.invalid" type="submit" >Добавить</button>
+        </div>
+    
+    </form>
+
+
+    <h2 class="text-center m-3">Список тортов</h2>
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">№</th>
+            <th scope="col">Название торта</th>
+            <th scope="col">Картинка</th>
+            <th scope="col">Информация о торте</th>
+            <th scope="col">Цена торта</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let cake of cakes">
+          <tr>
+            <td>{{cake.id}}</td>
+            <td>{{cake.name}}</td>
+            <td>{{cake.picture}}</td>
+            <td>{{cake.info}}</td>
+            <td>{{cake.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

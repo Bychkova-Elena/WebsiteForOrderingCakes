@@ -34,15 +34,16 @@ export class FormReadyComponent implements OnInit {
     cake_price: new FormControl( { value: this.cake.price, disabled: this.disabled }),
     name_customer: new FormControl( { value: '', disabled: this.disabled } , [Validators.required]),
     address: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
-    tel: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
+    tel: new FormControl({ value: '', disabled: this.disabled }, [Validators.required, Validators.minLength(11)]),
     email: new FormControl({ value: '', disabled: this.disabled }, [Validators.required, Validators.email]),
     date: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
+    status: new FormControl({ value: 'На рассмотрении', disabled: this.disabled }),
     });
     }
 onSubmit(){
-  this.db.list('customers').push( this.formReady.value);                           /** Заносим данные с формы в БД */
+  this.db.list('customers/customerFirst').push( this.formReady.value);                           /** Заносим данные с формы в БД */
   alert('Ваш заказ успешно отправлен! Наш администратор скоро с Вами свяжется!');  /** Выводим сообщение об успешной отправке формы*/ 
-  this.router.navigate(['/']);                                                     /** Перенаправляемся на главную страницу*/ 
+  this.router.navigate(['/main']);                                                     /** Перенаправляемся на главную страницу*/ 
   }
   public mask = [8,'(', /[0-9]/, /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/]; /** Маска для корректного ввода телефона */
 }

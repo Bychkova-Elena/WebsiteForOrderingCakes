@@ -1,11 +1,11 @@
 <header>
     <div class="container-fluid">
         <div class="row header ">
-            <div class="col-sm logo text-center "><a [routerLink]="['']"><img src="/assets/img/logo.png" alt="Логотип" ></a></div>
+            <div class="col-sm logo text-center "><a [routerLink]="['/main']"><img src="/assets/img/logo.png" alt="Логотип" ></a></div>
             <nav class="row">
-            <div class="col  text-center"><a href="#about" >О нас</a></div>
-            <div class="col  text-center"><a href="#cakes">Наши торты</a></div>
-            <div class="col  text-center"><a href="#contacts">Контакты</a></div>
+            <div class="col  text-center"><a href="/main/#about" >О нас</a></div>
+            <div class="col  text-center"><a href="/main/#cakes">Наши торты</a></div>
+            <div class="col  text-center"><a href="/main/#contacts">Контакты</a></div>
             </nav>
             <div class="col  contact text-center ">
                 <button type="button" class="btn mt-3" data-toggle="modal" data-target="#myModal">
@@ -35,7 +35,7 @@
         <div class="modal-body m-3 mt-5">
           <div class="row text-center">
               <div class="col">
-                  <a href=".//#cakes"><img src="/assets/img/ready_cook.png" class="w-100" alt="Готовые торты">
+                  <a href=".//main/#cakes"><img src="/assets/img/ready_cook.png" class="w-100" alt="Готовые торты">
                   <button class="btn">Посмотреть готовые варианты у нас на сайте</button></a>
               </div>
               <div class="col">

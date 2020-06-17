@@ -1,0 +1,30 @@
+
+<div class="container">
+    <div class = " mt-5"><app-worker-header></app-worker-header></div>
+    <table class="table" *ngFor="let customer of customerFirst">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Имя заказчика</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Email</th>
+            <th scope="col">Торт</th>
+            <th scope="col">Цена торта</th>
+            <th scope="col">Адес</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{customer.name_customer}}</td>
+            <td>{{customer.tel}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.cake_name}}</td>
+            <td>{{customer.cake_price}}</td>
+            <td>{{customer.address}}</td>
+            <td>{{customer.date}}</td>
+            <td>{{customer.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

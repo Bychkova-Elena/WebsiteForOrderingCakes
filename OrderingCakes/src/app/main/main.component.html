@@ -23,7 +23,7 @@
             <h2><a name="cakes" >Наши торты</a></h2> 
                 <div class="row photoCake" >
                     <div class="col" *ngFor = "let cake of cakes.slice(0,3)">
-                            <a [routerLink]="['cake-info', cake.id]"  title="Посмотреть подробную информацию" class="photo">
+                            <a [routerLink]="['/cake-info', cake.id]"  title="Посмотреть подробную информацию" class="photo">
                                 <div class="mt-5">
                                 <img src="{{cake.picture}}" alt="Торт" class="w-100">
                                 </div>
@@ -42,7 +42,7 @@
             </div>
             <ng-container *ngIf="next">
             <div class="col" *ngFor = "let cake of cakes.slice(3)">
-                <a [routerLink]="['cake-info', cake.id]" class="photo" title="Посмотреть подробную информацию">
+                <a [routerLink]="['/cake-info', cake.id]" class="photo" title="Посмотреть подробную информацию">
                     <div class="mt-5">
                     <img src="{{cake.picture}}" alt="Торт" class="w-100">
                     </div>
@@ -63,7 +63,7 @@
         <a href="" class="" *ngIf="!next" (click)="onNext()">Показать ещё</a>
             <div class="col text-left afterPhoto mt-5">
             <p class="">Вы также можете собрать собственный торт!</p>
-            <a [routerLink]="['form-own']" class="takeLink ">Собрать собственный торт</a>
+            <a [routerLink]="['/form-own']" class="takeLink ">Собрать собственный торт</a>
         </div>      
         </div>
 
@@ -92,3 +92,4 @@
         </div>
         </div>
 </main>
+<app-footer></app-footer>

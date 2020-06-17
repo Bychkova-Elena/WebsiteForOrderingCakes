@@ -5,7 +5,7 @@
     <img src="/assets/img/cream.png" alt="Крем" class="w-100">
 <div class="container p-5 ">
     <div class="col">
-        <button class="btn " type="submit" [routerLink]="['']">Вернуться на главную</button>
+        <button class="btn " type="submit" [routerLink]="['/main']">Вернуться на главную</button>
 </div>
     <h3 class=" text-center" >Заказ торта с индивидуальными параметрами</h3>
     <form  class="p-5" [formGroup]="formOwn" (ngSubmit)="onSubmit()">
@@ -53,6 +53,7 @@
 
             <label for="date">Когда вам нужен торт?<sup>*</sup></label>
             <input type="date" name="date"class="form-control mb-3" formControlName="date"   >
+            <input type="text" name="text" class="form-control mb-3"  formControlName="status" value="На рассмотрении" hidden>
             <p><sup>*</sup> - Необходимые поля для заполнения</p>
             <input type="checkbox" class="mb-3" id="" checked disabled>Даю согласие на обработку персональных данных
             <p class="order text-center m-3 "> Цена торта сообщается после обсуждения и подтверждения всех параметров торта!</p>
@@ -65,3 +66,4 @@
 
 </div>
 </div>
+<app-footer></app-footer>

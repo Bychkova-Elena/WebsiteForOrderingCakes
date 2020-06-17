@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
+import "firebase/auth";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Заказ домашних тортов от Павловых';
+
+
+  
+  
+
+
 }

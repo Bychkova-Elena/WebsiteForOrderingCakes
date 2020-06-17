@@ -1,42 +1,55 @@
 {
   "cakes": [
     {
-      "id":1,
-      "name":"Фруктовый",
-      "picture":"/assets/img/cake1.png",
-      "info":"Информация о торте",
-      "price":"1000 руб."
+      "id": 1,
+      "name": "Фруктовый",
+      "picture": "/assets/img/cake1.png",
+      "info": "Информация о торте",
+      "price": "1000 руб."
     },
     {
-      "id":2,
-      "name":"Шоколадный",
-      "picture":"/assets/img/cake2.png",
-      "info":"Информация о торте",
-      "price":"800 руб."
+      "id": 2,
+      "name": "Шоколадный",
+      "picture": "/assets/img/cake2.png",
+      "info": "Информация о торте",
+      "price": "800 руб."
     },
     {
-      "id":3,
-      "name":"Вишнёвый",
-      "picture":"/assets/img/cake3.png",
-      "info":"Информация о торте",
-      "price":"700 руб."
+      "id": 3,
+      "name": "Вишнёвый",
+      "picture": "/assets/img/cake3.png",
+      "info": "Информация о торте",
+      "price": "700 руб."
     },
     {
-      "id":4,
-      "name":"Вишнёвый",
-      "picture":"/assets/img/cake3.png",
-      "info":"Информация о торте",
-      "price":"700 руб."
+      "id": 4,
+      "name": "Вишнёвый",
+      "picture": "/assets/img/cake3.png",
+      "info": "Информация о торте",
+      "price": "700 руб."
     },
     {
-      "id":5,
-      "name":"Фруктовый",
-      "picture":"/assets/img/cake1.png",
-      "info":"Информация о торте",
-      "price":"1000 руб."
+      "id": 5,
+      "name": "Фруктовый",
+      "picture": "/assets/img/cake1.png",
+      "info": "Информация о торте",
+      "price": "1000 руб."
+    },
+    {
+      "name": "Фрутовый. Версия2",
+      "picture": "/assets/img/cake1.png",
+      "info": "Этот торт ещё более фрутовый",
+      "price": "1500 руб.",
+      "id": 6
+    },
+    {
+      "name": "Шоколадный. Версия2",
+      "picture": "/assets/img/cake2.png",
+      "info": "Этот торт ещё более шоколадный",
+      "price": "1000 руб.",
+      "id": 7
     }
   ],
-  
   "profile": {
     "name": "typecode"
   }
