@@ -29,7 +29,6 @@ export class FormOwnComponent implements OnInit {
       tiers: new FormControl ({value: '', disabled: this.disabled}),
       wishes: new FormControl ({value: '', disabled: this.disabled}),
       date: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
-      status: new FormControl({ value: 'На рассмотрении', disabled: this.disabled }),
       });
       }
 

@@ -8,6 +8,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class CustomerSecondComponent implements OnInit {
   customerSecond : any[];
+  srch="";
   constructor(db:AngularFireDatabase) { 
     db.list('/customers/customerSecond').valueChanges().subscribe(customerSecond => {
       this.customerSecond = customerSecond;

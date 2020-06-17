@@ -23,6 +23,8 @@ import { CustomerSecondComponent } from './worker/worker-panel/customer-second/c
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AdminChangeComponent } from './admin-change/admin-change.component';
+import { FilterPipe } from './pipe/filter.pipe';
+import { SortPipe } from './pipe/sort.pipe';
 
 
 
@@ -43,6 +45,8 @@ import { AdminChangeComponent } from './admin-change/admin-change.component';
     AdminLoginComponent,
     AdminPanelComponent,
     AdminChangeComponent,
+    FilterPipe,
+    SortPipe,
     
   ],
   imports: [

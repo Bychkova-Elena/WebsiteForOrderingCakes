@@ -37,7 +37,6 @@ export class FormReadyComponent implements OnInit {
     tel: new FormControl({ value: '', disabled: this.disabled }, [Validators.required, Validators.minLength(11)]),
     email: new FormControl({ value: '', disabled: this.disabled }, [Validators.required, Validators.email]),
     date: new FormControl({ value: '', disabled: this.disabled }, [Validators.required]),
-    status: new FormControl({ value: 'На рассмотрении', disabled: this.disabled }),
     });
     }
 onSubmit(){

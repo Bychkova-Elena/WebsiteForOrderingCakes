@@ -10,6 +10,8 @@ import { customerFirst } from 'src/app/cake/cake.module';
 })
 export class CustomerFirstComponent implements OnInit {
   customerFirst:any[];
+  sortOn="";
+  srch="";
 
   constructor(db:AngularFireDatabase) { 
     db.list('/customers/customerFirst').valueChanges().subscribe(customerFirst => {

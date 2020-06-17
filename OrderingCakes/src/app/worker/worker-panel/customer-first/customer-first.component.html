@@ -1,7 +1,19 @@
 
 <div class="container">
-    <div class = " mt-5"><app-worker-header></app-worker-header></div>
-    <table class="table" *ngFor="let customer of customerFirst">
+    <div class = " mt-5" ><app-worker-header></app-worker-header></div>
+    <h1 class="text-center mt-3 mb-5">Заказчики торта из каталога</h1>
+
+    <input type="text" [(ngModel)]="srch" placeholder="Поиск по ФИО заказчика" class="form-control mt-3 mb-3">
+
+    <h3>Фильтр по тортам:</h3>
+    <select   class=" col-4 form-control selectpicker" [(ngModel)]="sortON">
+        <option [ngValue]="every" selected > Показать все</option>
+          <option [ngValue]="choko" value="choko" > Шоколадный</option>
+          <option [ngValue]="fruit" value="fruit" >Фруктовый</option>
+          <option [ngValue]="cherry" value="cherry">Вишнёвый</option>
+        </select>
+
+    <table class="table mt-3" >
         <thead class="thead-light">
           <tr>
             <th scope="col">Имя заказчика</th>
@@ -11,10 +23,9 @@
             <th scope="col">Цена торта</th>
             <th scope="col">Адес</th>
             <th scope="col">Дата</th>
-            <th scope="col">Статус</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let customer of customerFirst | filter:srch | sort:sortON">
           <tr>
             <td>{{customer.name_customer}}</td>
             <td>{{customer.tel}}</td>
@@ -23,7 +34,6 @@
             <td>{{customer.cake_price}}</td>
             <td>{{customer.address}}</td>
             <td>{{customer.date}}</td>
-            <td>{{customer.status}}</td>
           </tr>
         </tbody>
       </table>

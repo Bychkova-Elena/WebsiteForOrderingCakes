@@ -1,7 +1,9 @@
 <div class="container">
     <div class = " mt-5"><app-worker-header></app-worker-header></div>
+    <h1 class="text-center mt-3">Заказчики креативного торта</h1>
+    <input type="text" [(ngModel)]="srch" placeholder="Поиск по ФИО заказчика" class="form-control mt-3 mb-3">
     <ol>
-    <div *ngFor="let customer of customerSecond" class="mt-5 mb-5">
+    <div *ngFor="let customer of customerSecond  | filter:srch" class="mt-5 mb-5">
       <h4 class="col font-weight-bold"><li>Заказчик</li></h4>
     <table class="table" >
         <thead class="thead-light">
@@ -11,7 +13,6 @@
             <th scope="col">Email</th>
             <th scope="col">Адес</th>
             <th scope="col">Дата</th>
-            <th scope="col">Статус</th>
           </tr>
         </thead>
         <tbody >
@@ -21,7 +22,6 @@
             <td>{{customer.email}}</td>
             <td>{{customer.address}}</td>
             <td>{{customer.date}}</td>
-            <td>{{customer.status}}</td>
           </tr>
         </tbody>
     </table>
