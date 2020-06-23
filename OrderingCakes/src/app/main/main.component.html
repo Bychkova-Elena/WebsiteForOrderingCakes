@@ -23,8 +23,11 @@
             <h2><a name="cakes" >Наши торты</a></h2> 
                 <div class="row photoCake" >
                     <div class="col" *ngFor = "let cake of cakes.slice(0,3)">
+                        <h4 class="text-center mt-3">{{cake.name}}</h4>
                             <a [routerLink]="['/cake-info', cake.id]"  title="Посмотреть подробную информацию" class="photo">
-                                <div class="mt-5">
+                                
+                                <div>
+                                    
                                 <img src="{{cake.picture}}" alt="Торт" class="w-100">
                                 </div>
                             </a>
@@ -42,8 +45,9 @@
             </div>
             <ng-container *ngIf="next">
             <div class="col" *ngFor = "let cake of cakes.slice(3)">
+                <h4 class="text-center mt-3" >{{cake.name}}</h4>
                 <a [routerLink]="['/cake-info', cake.id]" class="photo" title="Посмотреть подробную информацию">
-                    <div class="mt-5">
+                    <div class="">
                     <img src="{{cake.picture}}" alt="Торт" class="w-100">
                     </div>
                 </a>
